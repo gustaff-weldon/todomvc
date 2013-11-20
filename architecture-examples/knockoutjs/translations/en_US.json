@@ -1,0 +1,11 @@
+{
+    "todos": "todos",
+    "placeholder": "What needs to be done?",
+    "mark_completed": "Mark all as complete",
+    "items_left": "{COUNT, plural, one{ one item} other{# items} left }",
+    "all": "All",
+    "active": "Active",
+    "completed": "Completed",
+    "clear": "Clear completed (<span>{COUNT}</span>)",
+    "hint": "Double click to edit a todo"
+}
