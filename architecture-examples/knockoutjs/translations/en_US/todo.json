@@ -2,7 +2,7 @@
     "todos": "todos",
     "placeholder": "What needs to be done?",
     "mark_completed": "Mark all as complete",
-    "items_left": "{COUNT, plural, one{ one item} other{# items} } left",
+    "items_left": "<strong>{COUNT}<strong> {COUNT, plural, one{item} other{items} } left",
     "all": "All",
     "active": "Active",
     "completed": "Completed",

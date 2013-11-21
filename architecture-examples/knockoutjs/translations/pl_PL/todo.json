@@ -2,10 +2,10 @@
     "todos": "Zadania",
     "placeholder": "Co trzeba zrobic?",
     "mark_completed": "Zaznacz wszystkie jako wykonane",
-    "items_left": "{COUNT, plural, one{Pozostało # zadanie} few{Pozostały # zadania} many{Pozostało # zadań} other{Pozostały # zadania} }",
+    "items_left": "{COUNT, plural, one{Pozostało <strong>#</strong> zadanie} few{Pozostały <strong>#</strong> zadania} many{Pozostało <strong>#</strong> zadań} other{Pozostały <strong>#</strong> zadania} }",
     "all": "Wszystkie",
     "active": "Aktywne",
     "completed": "Wykonane",
     "clear": "Usuń wykonane (<span>{COUNT}</span>)",
-    "hint": "Kliknij dwukrotnie zadanie, aby je edytować"
+    "hint": "Kliknij dwukrotnie, aby edytować zadanie"
 }
