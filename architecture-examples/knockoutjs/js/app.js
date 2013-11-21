@@ -176,6 +176,11 @@
 			}.bind(this)
 		});
 
+		// helper function to keep expressions out of markup
+		this.getLabel = function (count) {
+			return ko.utils.unwrapObservable(count) === 1 ? 'item' : 'items';
+		}.bind(this);
+
 		// internal computed observable that fires whenever anything changes in our todos
 		ko.computed(function () {
 			// store a clean copy to local storage, which also creates a dependency on the observableArray and all observables in each item

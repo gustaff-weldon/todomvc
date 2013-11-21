@@ -9,12 +9,12 @@
 	<body>
 		<section id="todoapp">
 			<header id="header">
-				<h1>todos</h1>
-				<input id="new-todo" data-bind="value: current, valueUpdate: 'afterkeydown', enterKey: add" placeholder="What needs to be done?" autofocus>
+				<h1 data-bind='text: l().todo.todos()'></h1>
+				<input id="new-todo" data-bind="value: current, valueUpdate: 'afterkeydown', enterKey: add, attr: { placeholder: l().todo.placeholder() }" autofocus>
 			</header>
 			<section id="main" data-bind="visible: todos().length">
 				<input id="toggle-all" data-bind="checked: allCompleted" type="checkbox">
-				<label for="toggle-all">Mark all as complete</label>
+				<label for="toggle-all" data-bind='text: l().todo.mark_completed()'></label>
 				<ul id="todo-list" data-bind="foreach: filteredTodos">
 					<li data-bind="css: { completed: completed, editing: editing }">
 						<div class="view">
@@ -27,28 +27,30 @@
 				</ul>
 			</section>
 			<footer id="footer" data-bind="visible: completedCount() || remainingCount()">
-				<span id="todo-count">
-					<strong data-bind="text: remainingCount">0</strong>
-					<span data-bind="text: getLabel(remainingCount)"></span> left
+				<span id="todo-count" data-bind="html: l().todo.items_left( { COUNT: remainingCount() })">
 				</span>
 				<ul id="filters">
 					<li>
-						<a data-bind="css: { selected: showMode() == 'all' }" href="#/all">All</a>
+						<a data-bind="css: { selected: showMode() == 'all' }, text: l().todo.all()" href="#/all"></a>
 					</li>
 					<li>
-						<a data-bind="css: { selected: showMode() == 'active' }" href="#/active">Active</a>
+						<a data-bind="css: { selected: showMode() == 'active' }, text: l().todo.active()" href="#/active"></a>
 					</li>
 					<li>
-						<a data-bind="css: { selected: showMode() == 'completed' }" href="#/completed">Completed</a>
+						<a data-bind="css: { selected: showMode() == 'completed' }, text: l().todo.completed()"" href="#/completed"></a>
 					</li>
 				</ul>
-				<button id="clear-completed" data-bind="visible: completedCount, click: removeCompleted">
-					Clear completed (<span data-bind="text: completedCount"></span>)
+				<button id="clear-completed" data-bind="visible: completedCount, click: removeCompleted, html: l().todo.clear( { COUNT: completedCount() })">
 				</button>
 			</footer>
 		</section>
 		<footer id="info">
-			<p>Double-click to edit a todo</p>
+			<p data-bind="text: l().todo.hint()"></p>
+			<p>
+			<button data-bind='click: setLocale.bind( $data, "en_US" )'>English</button>
+			<button data-bind='click: setLocale.bind( $data, "pl_PL" )'>Polish</button>
+			</p>
+
 			<p>Written by <a href="https://github.com/ashish01/knockoutjs-todos">Ashish Sharma</a> and <a href="http://knockmeout.net">Ryan Niemeyer</a></p>
 			<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
 		</footer>
