@@ -64,6 +64,14 @@
 
 	// our main view model
 	var ViewModel = function (todos) {
+
+		this.l = ko.observable( i18n[ "en_US" ] );
+
+		this.setLocale = function( localeString ) {
+			console.log( "Setting locale to", localeString, i18n[ localeString ] );
+			this.l( i18n[ localeString ] );
+		}
+
 		// map array of passed in todos to an observableArray of Todo objects
 		this.todos = ko.observableArray(todos.map(function (todo) {
 			return new Todo(todo.title, todo.completed);
@@ -167,11 +175,6 @@
 				});
 			}.bind(this)
 		});
-
-		// helper function to keep expressions out of markup
-		this.getLabel = function (count) {
-			return ko.utils.unwrapObservable(count) === 1 ? 'item' : 'items';
-		}.bind(this);
 
 		// internal computed observable that fires whenever anything changes in our todos
 		ko.computed(function () {
